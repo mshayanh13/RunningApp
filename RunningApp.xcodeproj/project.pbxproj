@@ -68,18 +68,42 @@
 			children = (
 				109846C0245904590047CFCC /* AppDelegate.swift */,
 				109846C2245904590047CFCC /* SceneDelegate.swift */,
-				109846C4245904590047CFCC /* ViewController.swift */,
-				109846DC245A40660047CFCC /* RoundView.swift */,
-				109846D6245985C50047CFCC /* RoundButton.swift */,
-				109846D8245998600047CFCC /* RoundLabel.swift */,
-				109846DA245998970047CFCC /* CustomAnnotation.swift */,
-				109846D4245985AE0047CFCC /* Units.swift */,
+				109846DE245A5A2F0047CFCC /* Model */,
+				109846DF245A5A3D0047CFCC /* View */,
+				109846E0245A5A460047CFCC /* Controller */,
 				109846C6245904590047CFCC /* Main.storyboard */,
 				109846C92459045B0047CFCC /* Assets.xcassets */,
 				109846CB2459045B0047CFCC /* LaunchScreen.storyboard */,
 				109846CE2459045B0047CFCC /* Info.plist */,
 			);
 			path = RunningApp;
+			sourceTree = "<group>";
+		};
+		109846DE245A5A2F0047CFCC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				109846D4245985AE0047CFCC /* Units.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		109846DF245A5A3D0047CFCC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				109846DC245A40660047CFCC /* RoundView.swift */,
+				109846D6245985C50047CFCC /* RoundButton.swift */,
+				109846D8245998600047CFCC /* RoundLabel.swift */,
+				109846DA245998970047CFCC /* CustomAnnotation.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		109846E0245A5A460047CFCC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				109846C4245904590047CFCC /* ViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
