@@ -120,6 +120,7 @@ class ViewController: UIViewController {
         isRunning = false
         shareButton.isEnabled = true
         distanceLabel.isHidden = false
+        locationManager.allowsBackgroundLocationUpdates = false
         locationManager.stopUpdatingLocation()
         displayRoute()
     }
@@ -243,17 +244,6 @@ extension ViewController: MKMapViewDelegate {
         return nil
     }
     
-    func setupAnnotations() {
-        guard let startLocation = locationsPassed.first?.coordinate, let endLocation = locationsPassed.last?.coordinate, locationsPassed.count > 1 else {
-            return
-        }
-        let startAnnotation = CustomAnnotation(coordinateType: .start, coordinate: startLocation)
-        let endAnnotation = CustomAnnotation(coordinateType: .end, coordinate: endLocation)
-        
-        mapView.addAnnotation(startAnnotation)
-        mapView.addAnnotation(endAnnotation)
-    }
-    
     func displayRoute() {
         
         var routeCoordinates = [CLLocationCoordinate2D]()
@@ -267,6 +257,17 @@ extension ViewController: MKMapViewDelegate {
         
         calculateAndDisplayDistance()
         setupAnnotations()
+    }
+    
+    func setupAnnotations() {
+        guard let startLocation = locationsPassed.first?.coordinate, let endLocation = locationsPassed.last?.coordinate, locationsPassed.count > 1 else {
+            return
+        }
+        let startAnnotation = CustomAnnotation(coordinateType: .start, coordinate: startLocation)
+        let endAnnotation = CustomAnnotation(coordinateType: .end, coordinate: endLocation)
+        
+        mapView.addAnnotation(startAnnotation)
+        mapView.addAnnotation(endAnnotation)
     }
     
     func removeOverlays() {
@@ -304,11 +305,6 @@ extension ViewController: CLLocationManagerDelegate {
         checkLocationAuthorization()
     }
     
-    func setupLocationManager() {
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-    }
-    
     func centerViewOnUserLocation() {
         if let location = locationManager.location?.coordinate {
             enableButtons()
@@ -334,6 +330,11 @@ extension ViewController: CLLocationManagerDelegate {
             errorView.isHidden = false
             errorView.setErrorMessage("Please enable Location Services")
         }
+    }
+    
+    func setupLocationManager() {
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
     }
     
     func checkLocationAuthorization() {
