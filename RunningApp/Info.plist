@@ -60,5 +60,17 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>We need to see location to monitor where you jogged/ran</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>We need to see location to monitor where you jogged/ran</string>
+	<key>NSLocationUsageDescription</key>
+	<string>We need to see location to monitor where you jogged/ran</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We need to see location to monitor where you jogged/ran</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>location</string>
+	</array>
 </dict>
 </plist>
